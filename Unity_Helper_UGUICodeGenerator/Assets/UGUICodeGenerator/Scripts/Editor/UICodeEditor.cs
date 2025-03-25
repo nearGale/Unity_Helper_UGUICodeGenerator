@@ -4,6 +4,7 @@ using System.IO;
 using System.Runtime.Remoting.Messaging;
 using UGUICodeGenerator;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.iOS;
 
@@ -53,6 +54,14 @@ namespace UGUICodeGenerator
             if (target == null)
             {
                 Selection.activeGameObject.AddComponent(scriptType);
+
+                // Mark Dirty
+                var prefabStage = PrefabStageUtility.GetPrefabStage(Selection.activeGameObject);
+                if (prefabStage != null)
+                {
+                    EditorSceneManager.MarkSceneDirty(prefabStage.scene);
+                }
+
                 Debug.Log("UICodeGen:脚本绑定成功: " + className);
             }
             else
