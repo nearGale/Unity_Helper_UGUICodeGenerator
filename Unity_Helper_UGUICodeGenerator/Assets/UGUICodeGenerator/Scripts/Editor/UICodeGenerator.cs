@@ -15,7 +15,7 @@ namespace UGUICodeGenerator
         private const string Str_Using = "using System.Collections;\nusing UnityEngine;\nusing UnityEngine.UI;\n\n";
 
         /// <summary> 类声明 </summary>
-        private const string Str_Class = "public class #ScriptName# : MonoBehaviour";
+        private const string Str_Class = "public partial class #ScriptName# : MonoBehaviour";
 
         /// <summary> 要替换的类名 </summary>
         public const string ScriptName = "#ScriptName#";
