@@ -1,11 +1,11 @@
 // 自动生成代码，勿手动修改！
-// 生成时间：2025/3/25 16:50:30
+// 生成时间：2025/3/28 19:51:21
 
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UICode_PanelBg : MonoBehaviour
+public partial class UICode_PanelBg : MonoBehaviour
 {
 	[SerializeField] RectTransform rectTransform_ButtonLegacy;
 	[SerializeField] Button button_BtnTest;
