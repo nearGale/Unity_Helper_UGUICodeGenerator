@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Remoting.Messaging;
@@ -51,23 +51,23 @@ namespace UGUICodeGenerator
             }
 
             var target = Selection.activeGameObject.GetComponent(scriptType);
-            if (target == null)
-            {
-                Selection.activeGameObject.AddComponent(scriptType);
-
-                // Mark Dirty
-                var prefabStage = PrefabStageUtility.GetPrefabStage(Selection.activeGameObject);
-                if (prefabStage != null)
-                {
-                    EditorSceneManager.MarkSceneDirty(prefabStage.scene);
-                }
-
-                Debug.Log("UICodeGen:脚本绑定成功: " + className);
-            }
-            else
+            if (target != null)
             {
                 Debug.LogWarning("UICodeGen:已有绑定脚本: " + className);
+
+                GameObject.DestroyImmediate(target);
             }
+
+            Selection.activeGameObject.AddComponent(scriptType);
+
+            // Mark Dirty
+            var prefabStage = PrefabStageUtility.GetPrefabStage(Selection.activeGameObject);
+            if (prefabStage != null)
+            {
+                EditorSceneManager.MarkSceneDirty(prefabStage.scene);
+            }
+
+            Debug.Log("UICodeGen:脚本绑定成功: " + className);
         }
     }
 }

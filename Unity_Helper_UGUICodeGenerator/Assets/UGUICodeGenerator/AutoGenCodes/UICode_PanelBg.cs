@@ -1,5 +1,5 @@
 // 自动生成代码，勿手动修改！
-// 生成时间：2025/3/28 19:51:21
+// 生成时间：2025/3/28 20:06:44
 
 using System.Collections;
 using UnityEngine;
@@ -7,11 +7,12 @@ using UnityEngine.UI;
 
 public partial class UICode_PanelBg : MonoBehaviour
 {
-	[SerializeField] RectTransform rectTransform_ButtonLegacy;
-	[SerializeField] Button button_BtnTest;
-	[SerializeField] Image image_ButtonLegacy;
-	[SerializeField] Text text_TextLegacy;
-	[SerializeField] Transform transform_Image;
+	[SerializeField] RectTransform rectTransform_BtnCenter;
+	[SerializeField] Button button_BtnCenter;
+	[SerializeField] Image image_BtnCenter;
+	[SerializeField] Text text_TextBtnCenter;
+	[SerializeField] Transform transform_ImageTick;
+	[SerializeField] Transform transform_TextTryOverrideNme;
 
 
 
@@ -20,11 +21,12 @@ public partial class UICode_PanelBg : MonoBehaviour
 #if UNITY_EDITOR
 	private void Reset()
 	{
-		rectTransform_ButtonLegacy = transform.Find("Button (Legacy)").GetComponent<RectTransform>();
-		button_BtnTest = transform.Find("Button (Legacy)").GetComponent<Button>();
-		image_ButtonLegacy = transform.Find("Button (Legacy)").GetComponent<Image>();
-		text_TextLegacy = transform.Find("Button (Legacy)/Text (Legacy)").GetComponent<Text>();
-		transform_Image = transform.Find("Image").GetComponent<Transform>();
+		rectTransform_BtnCenter = transform.Find("BtnCenter").GetComponent<RectTransform>();
+		button_BtnCenter = transform.Find("BtnCenter").GetComponent<Button>();
+		image_BtnCenter = transform.Find("BtnCenter").GetComponent<Image>();
+		text_TextBtnCenter = transform.Find("BtnCenter/TextBtnCenter").GetComponent<Text>();
+		transform_ImageTick = transform.Find("ImageTick").GetComponent<Transform>();
+		transform_TextTryOverrideNme = transform.Find("TextName").GetComponent<Transform>();
 	}
 #endif
 	#endregion
