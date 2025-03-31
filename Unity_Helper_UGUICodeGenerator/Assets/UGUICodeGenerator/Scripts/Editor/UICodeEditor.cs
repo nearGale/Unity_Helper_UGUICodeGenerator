@@ -13,8 +13,6 @@ namespace UGUICodeGenerator
 {
     public class UICodeEditor
     {
-        public static string SavePath = Application.dataPath + "/UGUICodeGenerator/AutoGenCodes";
-
         /// <summary>
         /// 获取生成的类/文件名
         /// </summary>
@@ -24,7 +22,7 @@ namespace UGUICodeGenerator
             return $"UICode_{gameObject.name}";
         }
 
-        [MenuItem("GameObject/UI Code Gen 生成UI代码")]
+        [MenuItem("GameObject/UI Code Gen 生成UI代码", priority = 1001)]
         public static void UICodeGen()
         {
             GameObject selectedObj = Selection.activeGameObject;
@@ -33,16 +31,16 @@ namespace UGUICodeGenerator
             var codeStr = UICodeGenerator.StartScriptGenerate(selectedObj.transform, className);
             Debug.Log(codeStr);
 
-            UICodeGenerator.SaveScript(codeStr, SavePath, $"{className}.cs");
+            UICodeGenerator.SaveScript(codeStr, UICodeGeneratorParam.SavePath, $"{className}.cs");
         }
 
-        [MenuItem("GameObject/UI Code Attach 挂载UI代码")]
+        [MenuItem("GameObject/UI Code Attach 挂载UI代码", priority = 1002)]
         public static void UICodeAttach()
         {
             GameObject selectedObj = Selection.activeGameObject;
             var className = GetGenClassName(selectedObj);
 
-            var fileFullPath = SavePath + $"/{className}.cs";
+            var fileFullPath = UICodeGeneratorParam.SavePath + $"/{className}.cs";
             System.Type scriptType = UICodeHelper.GetAssembly().GetType(Path.GetFileNameWithoutExtension(fileFullPath));
             if (scriptType == null)
             {
